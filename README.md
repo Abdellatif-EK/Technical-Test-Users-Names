@@ -63,7 +63,7 @@ DB_HOST=localhost
 DB_NAME=namesdb
 DB_PASSWORD=postgres
 DB_PORT=5432
-PORT=5001
+PORT=5000
 ```
 
 ### Frontend Setup
@@ -89,9 +89,8 @@ The server will:
 
 1. Initialize the database tables if they don't exist
 2. Check if user data needs to be imported
-3. Generate test data if no user names file is present
-4. Build the alphabet index cache for efficient navigation
-5. Start listening on port 5001 (or your configured PORT)
+3. Build the alphabet index cache for efficient navigation
+4. Start listening on port 5000 (or your configured PORT)
 
 ### Starting the Frontend Application
 
@@ -328,16 +327,3 @@ Response:
 * **react-window-infinite-loader** : Infinite loading for virtualized lists
 * **axios** : HTTP client
 * **CSS3** : Styling with custom properties and responsive design
-
-## 🔮 Future Improvements
-
-1. **Search Functionality** : Implement real-time search with debounced queries
-2. **Multi-column Sorting** : Allow sorting by different name components
-3. **Data Export** : Enable exporting filtered results to CSV/Excel
-4. **Bookmark/Share Positions** : Create shareable links to specific positions
-5. **Progressive Web App** : Add offline capabilities
-6. **Server-side Filtering** : Implement more advanced filtering options
-7. **Fuzzy Matching** : Add support for approximate name matching
-8. **Internationalization** : Support for non-Latin alphabets and sorting
-9. **Performance Metrics** : Add telemetry for monitoring application performance
-10. **User Preferences** : Allow customization of UI, batch sizes, etc.

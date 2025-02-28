@@ -4,7 +4,7 @@ import InfiniteLoader from 'react-window-infinite-loader';
 import axios from 'axios';
 import './App.css';
 
-const API_URL = 'http://localhost:5001/api';
+const API_URL = 'http://localhost:5000/api';
 const BATCH_SIZE = 1000;
 const DEBOUNCE_TIME = 150; // Time in ms to wait before making a request
 

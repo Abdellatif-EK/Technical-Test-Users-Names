@@ -3,6 +3,7 @@ const { Pool } = require('pg');
 const fs = require('fs');
 const readline = require('readline');
 const path = require('path');
+require('dotenv').config();
 
 // Path to the user names file for initial import
 const FILE_PATH = path.join(__dirname, 'usersnames20M.txt');

@@ -15,21 +15,21 @@ A high-performance web application for displaying and navigating through a large
 
 ## 📋 Table of Contents
 
-* [Installation](#installation)
-* [Usage](#usage)
-* [Architecture Overview](#architecture-overview)
-* [Key Concepts](#key-concepts)
-* [Performance Optimizations](#performance-optimizations)
-* [API Endpoints](#api-endpoints)
-* [Technical Stack](#technical-stack)
-* [Future Improvements](#future-improvements)
+* [Installation](#-installation)
+* [Usage](#-usage)
+* [Architecture Overview](#-architecture-overview)
+* [Key Concepts](#-key-concepts)
+* [Performance Optimizations](#-performance-optimizations)
+* [API Endpoints](#-api-endpoints)
+* [Technical Stack](#-technical-stack)
+* [Future Improvements](#-future-improvements)
 
 ## 🔧 Installation
 
 ### Prerequisites
 
 * Node.js (v14+)
-* Docker for PostgreSQL (v12+)
+* Docker for PostgreSQL (v12+) container
 * npm or yarn
 
 ### Backend Setup

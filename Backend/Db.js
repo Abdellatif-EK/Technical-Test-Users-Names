@@ -5,15 +5,15 @@ const readline = require('readline');
 const path = require('path');
 
 // Path to the user names file for initial import
-const FILE_PATH = path.join(__dirname, 'usersnames.txt');
+const FILE_PATH = path.join(__dirname, 'usersnames20M.txt');
 
 // PostgreSQL connection configuration
 const pool = new Pool({
-  user: process.env.DB_USER || 'postgres',
-  host: process.env.DB_HOST || 'localhost',
-  database: process.env.DB_NAME || 'namesdb',
-  password: process.env.DB_PASSWORD || 'postgres',
-  port: process.env.DB_PORT || 5432,
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST ,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT ,
 });
 
 // Cache for alphabet index positions
@@ -53,8 +53,7 @@ async function initialize() {
         await importUsersFromFile();
       } else {
         console.log('No user file found. Generate test data if needed.');
-        await generateTestData(10000000); // Generate 1M test users
-        await importUsersFromFile();
+        console.error('User file not found and test data generation is disabled.');
       }
     } else {
       console.log(`Database already contains ${currentCount} users. Skipping import.`);
@@ -181,58 +180,6 @@ async function buildAlphabetCache() {
   console.log('Alphabet index cache built!', alphabetIndexCache);
 }
 
-// Generate test data
-async function generateTestData(targetSize) {
-  console.log(`Generating test data for approximately ${targetSize} users...`);
-  
-  // Sample first names and last names for generating data
-  const firstNames = ['James', 'John', 'Robert', 'Michael', 'William', 'David', 'Richard', 'Joseph', 'Thomas', 'Charles', 
-    'Adam', 'Brian', 'Aaron', 'Chris', 'Daniel', 'Edward', 'Frank', 'George', 'Henry', 'Ian', 
-    'Jack', 'Kevin', 'Larry', 'Matthew', 'Nathan', 'Oscar', 'Paul', 'Quincy', 'Ryan', 'Steven', 
-    'Timothy', 'Ulysses', 'Victor', 'Walter', 'Xavier', 'Zachary'];
-    
-  const lastNames = ['Smith', 'Johnson', 'Williams', 'Jones', 'Brown', 'Davis', 'Miller', 'Wilson', 'Moore', 'Taylor',
-    'Anderson', 'Thomas', 'Jackson', 'White', 'Harris', 'Martin', 'Thompson', 'Garcia', 'Martinez', 'Robinson',
-    'Clark', 'Rodriguez', 'Lewis', 'Lee', 'Walker', 'Hall', 'Allen', 'Young', 'Hernandez', 'King',
-    'Wright', 'Lopez', 'Hill', 'Scott', 'Green', 'Adams', 'Baker', 'Gonzalez', 'Nelson', 'Carter'];
-  
-  // Calculate how many batches we need (for memory efficiency)
-  const batchSize = 100000;
-  const batches = Math.ceil(targetSize / batchSize);
-  
-  // Create write stream
-  const writeStream = fs.createWriteStream(FILE_PATH);
-  
-  // Generate names in batches
-  let generatedCount = 0;
-  
-  const suffixes = ['', ' Jr.', ' Sr.', ' II', ' III', ' IV', ' V', ' PhD', ' MD', ' DDS', ' Esq.'];
-  
-  for (let batch = 0; batch < batches; batch++) {
-    const batchNames = [];
-    const currentBatchSize = Math.min(batchSize, targetSize - generatedCount);
-    
-    for (let i = 0; i < currentBatchSize; i++) {
-      const firstName = firstNames[Math.floor(Math.random() * firstNames.length)];
-      const lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
-      const suffix = (Math.random() < 0.1) ? suffixes[Math.floor(Math.random() * suffixes.length)] : '';
-      
-      batchNames.push(`${firstName} ${lastName}${suffix}`);
-    }
-    
-    // Sort batch names alphabetically
-    batchNames.sort();
-    
-    // Write to file
-    writeStream.write(batchNames.join('\n') + '\n');
-    
-    generatedCount += currentBatchSize;
-    console.log(`Generated ${generatedCount} names (${(generatedCount/targetSize*100).toFixed(1)}%)`);
-  }
-  
-  await new Promise(resolve => writeStream.end(resolve));
-  console.log('Test data generation completed');
-}
 
 // Methods to access data from other files
 async function getUsers(start, limit) {

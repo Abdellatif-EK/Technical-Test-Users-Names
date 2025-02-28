@@ -81,7 +81,8 @@ npm install
 
 ```bash
 cd Backend
-npm start
+node Db.js
+node Server.js
 ```
 
 The server will:
@@ -103,7 +104,7 @@ The React application will start and open in your default browser at `http://loc
 
 ### Data Generation
 
-The application automatically generates test data (10 million users by default) if no data file is present. This can be customized in the `initialize()` function in `server.js`.
+The application can generate test data (10 million users by default) using the script generate-file.js.
 
 ## 🏗️ Architecture Overview
 
@@ -273,7 +274,7 @@ GET /api/users?start=0&limit=100
 Parameters:
 
 * `start`: Starting position (offset) in the dataset
-* `limit`: Number of records to return (max 200000)
+* `limit`: Number of records to return (max 2000)
 
 Response:
 

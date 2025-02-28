@@ -21,7 +21,7 @@ app.get('/api/users', async (req, res) => {
   const limit = parseInt(req.query.limit) || 100;
   
   // Validate parameters
-  if (start < 0 || limit <= 0 || limit > 200000) {
+  if (start < 0 || limit <= 0 || limit > 2000) {
     return res.status(400).json({ error: 'Invalid parameters' });
   }
   

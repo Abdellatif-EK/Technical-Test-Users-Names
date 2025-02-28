@@ -2,7 +2,7 @@
 
 A high-performance web application for displaying and navigating through a large dataset of user names (10 million+) with efficient pagination, virtualized rendering, and alphabetical navigation.
 
-![1740744183053](image/README/1740744183053.png "User Directory Screenshot")
+![1740744183053](image/README/image.png "User Directory Screenshot")
 
 ## 🚀 Features
 
@@ -15,21 +15,21 @@ A high-performance web application for displaying and navigating through a large
 
 ## 📋 Table of Contents
 
-* [Installation](https://claude.ai/chat/fddd0732-5257-479b-afed-fca8aba75e16#installation)
-* [Usage](https://claude.ai/chat/fddd0732-5257-479b-afed-fca8aba75e16#usage)
-* [Architecture Overview](https://claude.ai/chat/fddd0732-5257-479b-afed-fca8aba75e16#architecture-overview)
-* [Key Concepts](https://claude.ai/chat/fddd0732-5257-479b-afed-fca8aba75e16#key-concepts)
-* [Performance Optimizations](https://claude.ai/chat/fddd0732-5257-479b-afed-fca8aba75e16#performance-optimizations)
-* [API Endpoints](https://claude.ai/chat/fddd0732-5257-479b-afed-fca8aba75e16#api-endpoints)
-* [Technical Stack](https://claude.ai/chat/fddd0732-5257-479b-afed-fca8aba75e16#technical-stack)
-* [Future Improvements](https://claude.ai/chat/fddd0732-5257-479b-afed-fca8aba75e16#future-improvements)
+* [Installation](#installation)
+* [Usage](#usage)
+* [Architecture Overview](#architecture-overview)
+* [Key Concepts](#key-concepts)
+* [Performance Optimizations](#performance-optimizations)
+* [API Endpoints](#api-endpoints)
+* [Technical Stack](#technical-stack)
+* [Future Improvements](#future-improvements)
 
 ## 🔧 Installation
 
 ### Prerequisites
 
 * Node.js (v14+)
-* PostgreSQL (v12+)
+* Docker for PostgreSQL (v12+)
 * npm or yarn
 
 ### Backend Setup
@@ -37,22 +37,21 @@ A high-performance web application for displaying and navigating through a large
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/user-directory.git
-cd user-directory
+git clone https://github.com/Abdellatif-EK/Technical-Test-Users-Names.git
+cd Technical-Test-Users-Names
 ```
 
 2. Install backend dependencies:
 
 ```bash
-cd server
+cd Backend
 npm install
 ```
 
-3. Set up PostgreSQL database:
+3. Set up PostgreSQL database using Docker Compose:
 
 ```bash
-# Create a new PostgreSQL database named 'namesdb'
-createdb namesdb
+docker-compose up -d 
 ```
 
 4. Configure environment variables (optional):
@@ -72,7 +71,7 @@ PORT=5001
 1. Install frontend dependencies:
 
 ```bash
-cd ../client
+cd ../Frontend
 npm install
 ```
 
@@ -97,7 +96,6 @@ The server will:
 
 ```bash
 cd Frontend
-cd large-list-frontend
 npm start
 ```
 

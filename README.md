@@ -4,7 +4,7 @@ A high-performance web application for displaying and navigating through a large
 
 ![1740744183053](image/README/image.png "User Directory Screenshot")
 
-# DEMO
+## Demo
 
 https://github.com/user-attachments/assets/1b7f63a1-67d9-4ea5-a4fe-ecf1631c9e7f
 

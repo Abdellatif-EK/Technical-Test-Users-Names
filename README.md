@@ -4,6 +4,10 @@ A high-performance web application for displaying and navigating through a large
 
 ![1740744183053](image/README/image.png "User Directory Screenshot")
 
+# DEMO
+
+https://github.com/user-attachments/assets/1b7f63a1-67d9-4ea5-a4fe-ecf1631c9e7f
+
 ## 🚀 Features
 
 * **Efficient handling of 10 million+ user names**
@@ -48,13 +52,7 @@ cd Backend
 npm install
 ```
 
-3. Set up PostgreSQL database using Docker Compose:
-
-```bash
-docker-compose up -d 
-```
-
-4. Configure environment variables (optional):
+3. Configure environment variables (optional):
    Create a `.env` file in the server directory with the following variables:
 
 ```
@@ -64,6 +62,12 @@ DB_NAME=namesdb
 DB_PASSWORD=postgres
 DB_PORT=5432
 PORT=5000
+```
+
+4. Set up PostgreSQL database using Docker Compose:
+
+```bash
+docker-compose up -d 
 ```
 
 ### Frontend Setup
@@ -81,6 +85,7 @@ npm install
 
 ```bash
 cd Backend
+node generate-file.js
 node Db.js
 node Server.js
 ```

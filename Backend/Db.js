@@ -6,7 +6,7 @@ const path = require('path');
 require('dotenv').config();
 
 // Path to the user names file for initial import
-const FILE_PATH = path.join(__dirname, 'usersnames20M.txt');
+const FILE_PATH = path.join(__dirname, 'usersnames10M.txt');
 
 // PostgreSQL connection configuration
 const pool = new Pool({
